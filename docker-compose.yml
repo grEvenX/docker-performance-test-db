@@ -1,0 +1,16 @@
+version: '3.7'
+volumes:
+  database:
+services:
+  pgsql-server:
+    image: postgres:13.2
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: "testdb"
+      POSTGRES_USER: "strativadmin"
+      POSTGRES_PASSWORD: "secret"
+  pgsql-client:
+    image: postgres:13.2
+    environment:
+      PGPASSWORD: "secret"
